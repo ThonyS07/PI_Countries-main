@@ -13,13 +13,7 @@ module.exports = (sequelize) => {
                 },
             },
 
-            activityId: {
-				type: DataTypes.UUID,
-				defaultValue: DataTypes.UUIDV4,
-				allowNull: false,
-				primaryKey: true,
-			},
-
+        
 			dificult: {
 				type: DataTypes.INTEGER,
 				validate: {
