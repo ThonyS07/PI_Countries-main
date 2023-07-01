@@ -46,10 +46,7 @@ const loadDb = async (req, res) => {
 	// console.log("DB success");
 
 
-const getAllCountriesByDb = async function () {
-	let countries = await Country.findAll();
-	return countries;
-};
+
 
 const getAllCountries = async function () {
 	let dbCountries = await getAllCountriesByDb();
