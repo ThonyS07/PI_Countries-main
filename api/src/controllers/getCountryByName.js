@@ -1,49 +1,33 @@
 const { Op, Country, Activity } = require("../db");
+const getAllCountries = require("./getAllCountries");
 
 
 const getCountryByName = async (req, res) => {
-const { name } = req.query;
-
-try {
-	if (!name) {
-		const countries = await Country.findAll({
-			include: [
-				{
-					model: Activity,
-					attributes: ["name", "difficulty", "duration", "season"],
-					through: { attributes: [] },
-				},
-			],
-		});
-		if (countries) {
-			return res.status(200).json(countries);
+	const { name } = req.query;
+	try {
+		if (!name) {getAllCountries();
 		} else {
-            return res.status(404).json({
-								msg: "País no encontrado",
-							});
-		}
-	} else {
-		const country = await Country.findAll({
-			where: {
-				name: { [Op.substring]: name },
-			},
-			include: [
-				{
-					model: Activity,
-					attributes: ["name", "difficulty", "duration", "season"],
-					through: { attributes: [] },
+			const country = await Country.findAll({
+				where: {
+					name: { [Op.substring]: name },
 				},
-			],
-		});
-		if (country) {
-			return res.status(200).json(country);
-		} else {
-			return res.status(404).json({msg:"No se encontró el pais"});
+				include: [
+					{
+						model: Activity,
+						attributes: ["name", "difficulty", "duration", "season"],
+						through: { attributes: [] },
+					},
+				],
+			});
+			if (country.length) {
+				return res.status(200).json(country);
+			} else {
+				return res.status(404).json({msg:"No se encontró el pais"});
+			}
 		}
+	} catch (error) {
+		res.status(404).send({ error: error.msg });
 	}
-} catch (error) {
-	res.status(404).send({ error: error.msg });
-}
 
 
 

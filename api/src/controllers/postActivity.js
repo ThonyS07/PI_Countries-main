@@ -29,18 +29,18 @@ const postActivity = async (req, res) => {
 		const { name, difficulty, duration, season, cId } = req.body;
 		console.log("will add activity", req.body);
 
-		const validateActivity = await Activity.findOne({
+		const validateActivity = await Activity.findAll({
 			where: {
 				name: name,
 			},
 		});
 
 		if (!name || !difficulty || !duration || !season || !cId) {
-			res.status(404).json("Please complete all fields.");
+			res.status(404).json({msg:"Completa todos los campos."});
 		}
 
 		if (validateActivity) {
-			res.status(404).json("This activity already exist.");
+			res.status(404).json({msg: "Esta actividad ya existe."});
 		} else {
 		
 			const newActivity = await Activity.create({
@@ -57,8 +57,8 @@ const postActivity = async (req, res) => {
 			res.status(200).send("OK");
 		}
 	} catch (error) {
-		console.log("errro", error);
-		res.status(500).send(error);
+		
+		res.status(404).send(error.msg);
 	}
 };
 

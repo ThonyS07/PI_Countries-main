@@ -3,14 +3,15 @@ const {Country,Activity} = require("../db");
 const getCountryById = async (req, res) => {
 	const { id } = req.params;
 	try {
+		const countId= id.toUpperCase()
 		const country = await Country.findAll({
 			where: {
-				id: id.toUpperCase(),
+				id: countId,
 			},
 			include: [
 				{
 					model: Activity,
-					// attributes: ["name", "dificulty", "duration", "season"],
+					attributes: ["name", "difficulty", "duration", "season"],
 					through: { attributes: [] },
 				},
 			],

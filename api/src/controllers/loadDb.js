@@ -22,7 +22,7 @@ const loadDb = async () => {
                     });
                 });
 			
-                console.log('Creado')
+                console.log('DB creada')
             })
             .catch((error) => {
                 console.log(error);
