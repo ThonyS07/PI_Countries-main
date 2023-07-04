@@ -17,16 +17,14 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
-const {loadDb}=require('./src/LoadDB/loadDB')
+const server = require("./src/app.js");
+const { conn, Country } = require("./src/db.js");
+const loadDb = require("./src/controllers/loadDb");
 
-// Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
-    loadDb();
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-  });
+// Syncing all the models at once
+conn.sync({ force: false }).then(() => {
+	server.listen(process.env.PORT, () => {
+		loadDb();
+		console.log("listening at PORT:" + process.env.PORT); // eslint-disable-line no-console
+	});
 });
-
-

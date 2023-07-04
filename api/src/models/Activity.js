@@ -5,23 +5,29 @@ module.exports = (sequelize) => {
 	// defino el modelo
 	sequelize.define(
 		"activity",
-        {
-            name: {
-                type: DataTypes.STRING,
-                set(value) {
-                    this.setDataValue("name", value.toUpperCase());
-                },
-            },
+		{
+			id: {
+				type: DataTypes.UUID,
+				defaultValue: DataTypes.UUIDV4,
+				allowNull: false,
+				primaryKey: true,
+			},
 
-        
-			dificult: {
+			name: {
+				type: DataTypes.STRING,
+				set(value) {
+					this.setDataValue("name", value.toUpperCase());
+				},
+			},
+
+			difficulty: {
 				type: DataTypes.INTEGER,
 				validate: {
 					min: 1,
 					max: 5,
 					isEven(value) {
 						if (value < 1 || value > 5)
-							throw new Error("La dificultad debe ser un valor entre 1 y 5");
+							throw new Error("La dificultad debe ser un valor entre 1 y 10");
 					},
 				},
 			},
@@ -51,9 +57,7 @@ module.exports = (sequelize) => {
 			},
 		},
 		{
-			timestamps: true,
-			createdAt: false,
-			updatedAt: "actualizado",
+			timestamps: false,
 		}
 	);
 };
