@@ -11,7 +11,7 @@ const loadDb = async () => {
                     await Country.create({
                         id: count.cca3,
                         name: count.name.common,
-                        flagImg: count.flags[0],
+                        flagImg: count.flags[1],
                         continent: count.continents[0],
                         capital: count.capital
                             ? count.capital[0]

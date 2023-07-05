@@ -27,7 +27,7 @@ module.exports = (sequelize) => {
 					max: 5,
 					isEven(value) {
 						if (value < 1 || value > 5)
-							throw new Error("La dificultad debe ser un valor entre 1 y 10");
+							throw new Error("La dificultad debe ser un valor entre 1 y 5");
 					},
 				},
 			},

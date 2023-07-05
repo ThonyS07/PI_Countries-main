@@ -1,10 +1,14 @@
 const { Router } = require("express");
 const postActivity = require('../controllers/postActivity')
+const getAllActivities = require('../controllers/getAllActivities')
+const deleteActivity=require('../controllers/deleteActivity')
+
 
 const activityRouter = Router();
 
-// activityRouter.post("/", createNewActivity);
+activityRouter.get("/", getAllActivities);
 activityRouter.post("/", postActivity)
+activityRouter.delete("/:name",deleteActivity)
 	// try {
 	// 	const { name, difficulty, duration, season, countries } = req.body;
 

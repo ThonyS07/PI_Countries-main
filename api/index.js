@@ -22,7 +22,7 @@ const { conn, Country } = require("./src/db.js");
 const loadDb = require("./src/controllers/loadDb");
 
 // Syncing all the models at once
-conn.sync({ force: false }).then(() => {
+conn.sync({ force: false}).then(() => {
 	server.listen(process.env.PORT, () => {
 		loadDb();
 		console.log("listening at PORT:" + process.env.PORT); // eslint-disable-line no-console

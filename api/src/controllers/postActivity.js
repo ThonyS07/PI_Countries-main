@@ -1,29 +1,6 @@
 const { Activity, Country } = require('../db');
 
 
-// const createNewActivity = async (req, res) => {
-//     try {
-//         const { name, difficulty, duration, season, id} = req.body
-//         const searchActivity = await Activity.findOne({
-//             where: {
-//                 name: name,
-//             },
-//         });
-//         if (searchActivity) throw new Error("Esta actividad turistica ya existe"); 
-
-//         const newActivity = await Activity.create({ name, difficulty, duration, season})
-//         const countByActivities = await Country.findAll({
-//             where: { id }
-//         })
-//         newActivity.addCountries(countByActivities)
-
-//         return res.status(200).json(newActivity)
-//     } catch (error) {
-//         res.status(400).send(error.message)
-//     }
-    
-// }
-
 const postActivity = async (req, res) => {
 	try {
 		const { name, difficulty, duration, season, cId } = req.body;
@@ -31,7 +8,7 @@ const postActivity = async (req, res) => {
 
 		const validateActivity = await Activity.findAll({
 			where: {
-				name: name,
+				name: name.toUpperCase(),
 			},
 		});
 
@@ -39,7 +16,7 @@ const postActivity = async (req, res) => {
 			res.status(404).json({msg:"Completa todos los campos."});
 		}
 
-		if (validateActivity) {
+		if (validateActivity.length>0) {
 			res.status(404).json({msg: "Esta actividad ya existe."});
 		} else {
 		
@@ -50,11 +27,11 @@ const postActivity = async (req, res) => {
 				season,
 			});
 
-			for (const countryId of cId) {
+			for (let countryId of cId) {
 				await newActivity.addCountry(countryId);
 			}
 
-			res.status(200).send("OK");
+			res.status(200).send("Actividad creada con exito");
 		}
 	} catch (error) {
 		
@@ -62,49 +39,4 @@ const postActivity = async (req, res) => {
 	}
 };
 
-// const createNewActivity = async function (req,res) {
-// 	// const searchingActivity = await Activity.findAll({
-// 	// 	where: {
-// 	// 		name: value.name.toUpperCase(),
-// 	// 	},
-// 	// });
-// 	// if (searchingActivity.length)
-// 	// 	throw new Error("Esta actividad turistica ya existe");
-// 	// const newActivity = await Activity.create(value);
-// 	// const countriesByActivities = await Country.findAll({
-// 	// 	where: {
-// 	// 		id: value.countries,
-// 	// 	},
-// 	// });
-// 	// newActivity.addCountries(countriesByActivities);
-//     // return newActivity;
-    
-// const { name, difficulty, duration, season, countries} = req.body;
-
-// try {
-// 	let activity = await Activity.create({
-// 		name,
-// 		difficulty,
-// 		duration,
-// 		season,
-// 	});
-// 	await activity.setCountries(countries);
-
-// 	let activityWithCountry = await Activity.findOne({
-// 		where: { name: name },
-
-// 		include: {
-// 			model: Country,
-// 			through: {
-// 				attributes: [],
-// 			},
-// 		},
-// 	});
-// 	res.json(activityWithCountry);
-// } catch (error) {
-// 	res.status(400).send(error.message);
-// }
-    
-
-// };
 module.exports = postActivity;
