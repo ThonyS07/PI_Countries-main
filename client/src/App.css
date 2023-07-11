@@ -1,4 +1,21 @@
 .App {
+   
+   background-repeat: no-repeat;
+   background-size: cover;  
+}
+html,
+body{
+   /* background-image: url('./img/imagen-fondo2.jpg'); */
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+   width: 100vw;
+   height: 100vh;
+}
+
+
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +52,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

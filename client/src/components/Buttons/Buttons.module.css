@@ -1,0 +1,12 @@
+.button{
+    width: 140px;
+	height: 35px;
+	flex-shrink: 0;
+	color: #fff;
+	font-family: Inter;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+	background-color: #19818F;
+}

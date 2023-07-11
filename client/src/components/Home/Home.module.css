@@ -1,0 +1,44 @@
+.Nav {
+	grid-area: "NavBar";
+	background-color: red;
+}
+
+.boxesWrapper {
+	grid-area: "boxesWrapper";
+	background-color: blueviolet;
+}
+.left {
+	grid-area: "left";
+	background-color: rgb(17, 16, 16);
+}
+
+.right {
+	grid-area: "right";
+	background-color: green;
+}
+
+.Home {
+	height: auto;
+	display: grid;
+	gap: 20;
+	grid-template-areas:
+		"NavBar"
+		"boxesWrapper";
+	/* grid-template:
+ 'NavBar NavBar' 100px
+ 'boxesWrapper boxesWrapper'   auto /
+  50%       50%;
+} */
+	grid-template-rows: 70px auto;
+}
+
+.boxesWrapper {
+	display: grid;
+	height: 100%;
+	/* align-items: center; */
+	justify-content: space-around;
+	grid-template:
+		"left"
+		"right";
+	grid-template-columns: 40% 60%;
+}
