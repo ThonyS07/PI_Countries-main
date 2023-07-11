@@ -2,16 +2,18 @@ import React from 'react'
 import styles from './NavBar.module.css'
 import pathRoutes from '../../helpers/pathRoutes.helper'
 import { Link } from 'react-router-dom'
-import logo from '../../assets/img/logo.png'
+//Components
 import Buttons from '../Buttons/Buttons'
+import SearchBar from '../SearchBar/SearchBar'
+
+//images
+import logo from '../../assets/img/logo.png'
+
 
 const NavBar=()=> {
   return (
 		<div className={styles.NavBar}>
-			<div className={styles.logo}>
-				<img src={logo} alt='logo' />
-				Countries
-			</div>
+			<logo/>
 			<div className={styles.buttonsWrapper}>
 				<Link className={styles.link} to={pathRoutes.HOME}>
 					Home

@@ -1,13 +1,13 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
-import styles from "./Home.module.css";
+import styles from "./Landing.module.css";
 // import pathRoutes from "../../helpers/pathRoutes.helper";
 import Buttons from "../Buttons/Buttons";
 import logo from "../../assets/img/logo.png";
 
-export default function Home() {
+const Landing=()=> {
 	return (
-		<div className={styles.Home}>
+		<div className={styles.Landing}>
 			<NavBar className={styles.Nav} />
 			<div className={styles.boxesWrapper}>
 				<div className={styles.left}>
@@ -31,3 +31,5 @@ export default function Home() {
 		</div>
 	);
 }
+
+export default Landing;
