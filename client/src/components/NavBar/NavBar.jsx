@@ -1,19 +1,22 @@
+// REACT
 import React from 'react'
-import styles from './NavBar.module.css'
-import pathRoutes from '../../helpers/pathRoutes.helper'
 import { Link } from 'react-router-dom'
 //Components
 import Buttons from '../Buttons/Buttons'
-import SearchBar from '../SearchBar/SearchBar'
+import Logo from '../Logo/Logo'
+// import SearchBar from '../SearchBar/SearchBar'
 
-//images
-import logo from '../../assets/img/logo.png'
+// Styles
+import styles from './NavBar.module.css'
+
+//Routes
+import pathRoutes from '../../helpers/pathRoutes.helper'
 
 
 const NavBar=()=> {
   return (
 		<div className={styles.NavBar}>
-			<logo/>
+			<Logo/>
 			<div className={styles.buttonsWrapper}>
 				<Link className={styles.link} to={pathRoutes.HOME}>
 					Home

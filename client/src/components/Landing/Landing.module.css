@@ -24,11 +24,6 @@
 	grid-template-areas:
 		"NavBar"
 		"boxesWrapper";
-	/* grid-template:
- 'NavBar NavBar' 100px
- 'boxesWrapper boxesWrapper'   auto /
-  50%       50%;
-} */
 	grid-template-rows: 70px auto;
 }
 
