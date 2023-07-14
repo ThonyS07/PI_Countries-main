@@ -2,7 +2,7 @@ import React from "react";
 import {
 	changePage,
 	filterByActivity,
-	getAllCountries,
+	getAllActivities,
 } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 
@@ -23,7 +23,7 @@ function FilterByActivities({ activities }) {
 				<p>No se han creado actividades</p>
 			) : (
 				<select onChange={handleActivity}>
-					<option value='allActivities'>All activities</option>
+					<option value='allActivities' selected='true'>All activities</option>
 					{activities.map((activity) => (
 						<option value={activity} key={activity}>
 							{activity}

@@ -22,7 +22,7 @@ const initialState = {
 	allActivities: [],
 	activitiesBackUp: [],
 	loading: false,
-	error:'',
+	error: "",
 	page: 1,
 };
 
@@ -113,7 +113,21 @@ export default function rootReducer(state = initialState, { type, payload }) {
 				),
 			};
 		case FILTER_BY_ACTIVITY:
-			if (payload === "allActivities") {
+			const allActivities = state.allActivities;
+			const activityFilter =
+				action.payload === "allActivities"
+					? allActivities.filter((e) => e.activities.length > 0)
+					: allActivities.filter((c) =>
+							c.activities.find(
+								(element) => element.name.toLowerCase() === payload
+							)
+					  );
+			return {
+				...state,
+				allCountries: activityFilter,
+			};
+
+			/*if (payload === "allActivities") {
 				return {
 					...state,
 					allActivities: [...state.activitiesBackUp],
@@ -121,10 +135,11 @@ export default function rootReducer(state = initialState, { type, payload }) {
 			}
 			return {
 				...state,
-				allActivities: [...state.activitiesBackUp].filter(
-					(activity) => activity.continent.toUpperCase() === payload.toUpperCase()
+				allCountries: [...state.countriesBackUp].filter(
+					(country) =>
+						country.activities.name.toUpperCase() === payload.toUpperCase()
 				),
-			};
+			};*/
 		case GET_ALL_ACTIVITIES:
 			return {
 				...state,

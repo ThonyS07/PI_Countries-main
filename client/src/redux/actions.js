@@ -104,7 +104,7 @@ export const resetCountries = () => {
 	};
 };
 
-export const orderCountriesByname = (order) => {
+export const orderCountriesByName = (order) => {
 	return {
 		type: ORDER_BY_NAME,
 		payload: order,
