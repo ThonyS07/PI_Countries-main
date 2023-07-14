@@ -22,13 +22,7 @@ const Card = (props) => {
 					<div className={styles.flag}>
 						<img src={flagImg} alt='flag' />
 					</div>
-					{/* <button
-							className={styles.boton}
-							onClick={() => {
-								onClose(id);
-							}}>
-							X
-						</button>; */}
+				
 					<div className={styles.texto}>
 						<Link strict to={pathRoutes.COUNTRY_DETAILS + `${id}`}>
 							<h1 className={styles.name}>{name}</h1>

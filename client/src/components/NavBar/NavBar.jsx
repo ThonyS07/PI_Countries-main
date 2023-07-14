@@ -1,22 +1,25 @@
 // REACT
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 //Components
-import Buttons from '../Buttons/Buttons'
-import Logo from '../Logo/Logo'
+import Buttons from "../Buttons/Buttons";
+import Logo from "../Logo/Logo";
 // import SearchBar from '../SearchBar/SearchBar'
 
 // Styles
-import styles from './NavBar.module.css'
+import styles from "./NavBar.module.css";
 
 //Routes
-import pathRoutes from '../../helpers/pathRoutes.helper'
+import pathRoutes from "../../helpers/pathRoutes.helper";
 
-
-const NavBar=()=> {
-  return (
+const NavBar = () => {
+	// const { pathname } = useLocation();
+	return (
 		<div className={styles.NavBar}>
-			<Logo/>
+			
+			<Link className={styles.link} to={pathRoutes.HOME}>
+				<Logo/>
+			</Link>
 			<div className={styles.buttonsWrapper}>
 				<Link className={styles.link} to={pathRoutes.HOME}>
 					Home
@@ -28,9 +31,9 @@ const NavBar=()=> {
 					Activities
 				</Link>
 			</div>
-			<Buttons buttonName={'Login'}/>
+			<Buttons buttonName={"Login"} />
 		</div>
 	);
-}
+};
 
 export default NavBar;

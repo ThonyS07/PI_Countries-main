@@ -1,9 +1,8 @@
-const { Sequelize, Op, Country, Activity } = require("../db");
-const getAllCountries = require("./getAllCountries")
+const {Country, Activity } = require("../db");
+
 
 const getCountryByName = async (req, res) => {
 	const { name } = req.query;
-
 
 	try {
 		if (!name) {
