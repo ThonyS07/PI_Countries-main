@@ -43,10 +43,10 @@ export default function rootReducer(state = initialState, { type, payload }) {
 		case COUNTRY_BY_NAME:
 			return {
 				...state,
-				allCountries: payload,
-				// 	[...state.countryBackUp].filter((country) =>
-				// 	country.name.toUpperCase().includes(payload.toUpperCase())
-				// ),
+				
+					allCountries: [...state.countryBackUp].filter((country) =>
+					country.name.toUpperCase()===(payload.toUpperCase())
+				),
 			};
 		case CHANGE_PAGE:
 			return {
@@ -113,38 +113,21 @@ export default function rootReducer(state = initialState, { type, payload }) {
 				),
 			};
 		case FILTER_BY_ACTIVITY:
-			const allActivities = state.allActivities;
-			const activityFilter =
-				action.payload === "allActivities"
-					? allActivities.filter((e) => e.activities.length > 0)
-					: allActivities.filter((c) =>
-							c.activities.find(
-								(element) => element.name.toLowerCase() === payload
-							)
-					  );
-			return {
-				...state,
-				allCountries: activityFilter,
-			};
 
-			/*if (payload === "allActivities") {
-				return {
-					...state,
-					allActivities: [...state.activitiesBackUp],
-				};
-			}
+			state.allCountries = state.countryBackUp;
 			return {
 				...state,
-				allCountries: [...state.countriesBackUp].filter(
+				allCountries: [...state.countryBackUp].filter(
 					(country) =>
 						country.activities.name.toUpperCase() === payload.toUpperCase()
 				),
-			};*/
+			};
+		
 		case GET_ALL_ACTIVITIES:
 			return {
 				...state,
 				allActivities: payload,
-				// activitiesBackUp: payload,
+				activitiesBackUp: payload,
 			};
 		case DELETE_ACTIVITY:
 			return {

@@ -70,10 +70,10 @@ export const searchCountry = (name) => {
 					payload: data,
 				});
 			});
-		} catch (error) {
+		} catch (error ) {
 			return dispatch({
 				type: FAILURE,
-				payload: error.response.data.msg,
+				payload:error.msg,
 			});
 		}
 	};
@@ -158,7 +158,7 @@ export const getAllActivities = () => {
 		} catch (error) {
 			return dispatch({
 				type: FAILURE,
-				payload: error.response.data.msg,
+				payload: error.msg,
 			});
 		}
 	};

@@ -9,7 +9,7 @@ import NavBar from "../NavBar/NavBar";
 import styles from "./Countries.module.css";
 
 //?Redux
-import { changePage, getAllCountries, resetDetail } from "../../redux/actions";
+import { changePage, getAllCountries, resetDetail, getAllActivities } from "../../redux/actions";
 
 const Countries = () => {
 	const allCountries = useSelector((state) => state.allCountries);

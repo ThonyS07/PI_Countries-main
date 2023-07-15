@@ -2,13 +2,14 @@ import React from "react";
 import {
 	changePage,
 	filterByActivity,
-	getAllActivities,
+	getAllCountries,
 } from "../../redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 
-function FilterByActivities({ activities }) {
+function FilterByActivities() {
 	const dispatch = useDispatch();
-	function handleActivity(e) {
+	const allActivities= useSelector(state=>state.allActivities)
+	const handleActivity=(e)=> {
 		e.preventDefault();
 		e.target.value === "allActivities"
 			? dispatch(getAllCountries())
@@ -19,18 +20,16 @@ function FilterByActivities({ activities }) {
 
 	return (
 		<div>
-			{!activities ? (
-				<p>No se han creado actividades</p>
-			) : (
+			  
 				<select onChange={handleActivity}>
 					<option value='allActivities' selected='true'>All activities</option>
-					{activities.map((activity) => (
+					{allActivities.map((activity) => (
 						<option value={activity} key={activity}>
 							{activity}
 						</option>
 					))}
 				</select>
-			)}
+			
 		</div>
 	);
 }

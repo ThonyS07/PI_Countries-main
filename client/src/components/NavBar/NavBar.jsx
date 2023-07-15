@@ -1,6 +1,6 @@
 // REACT
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, /*useLocation*/ } from "react-router-dom";
 //Components
 import Buttons from "../Buttons/Buttons";
 import Logo from "../Logo/Logo";
@@ -11,8 +11,13 @@ import styles from "./NavBar.module.css";
 
 //Routes
 import pathRoutes from "../../helpers/pathRoutes.helper";
-
+import SearchBar from "../SearchBar/SearchBar";
+import OrderByPopulation from '../OrderByPopulation/OrderByPopulation';
+import OrderByName from "../OrderByName/OrderByName";
+import FilterByActivities from "../FilterByActivities/FilterByActivities";
+import FilterByContinent from '../FilterByContinent/FilterByContinent'
 const NavBar = () => {
+	
 	// const { pathname } = useLocation();
 	return (
 		<div className={styles.NavBar}>
@@ -31,6 +36,11 @@ const NavBar = () => {
 					Activities
 				</Link>
 			</div>
+			<SearchBar />
+			<OrderByPopulation />
+			<OrderByName />
+			{/* <FilterByActivities  /> */}
+			<FilterByContinent/>
 			<Buttons buttonName={"Login"} />
 		</div>
 	);

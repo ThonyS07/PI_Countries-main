@@ -1,6 +1,14 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { changePage, filterByContinent} from '../../redux/actions';
 
-const FilterByContinent=({handleContinents})=> {
+const FilterByContinent = () => {
+	const dispatch=useDispatch()
+	const handleContinents = (e)=> {
+		e.preventDefault();
+		dispatch(filterByContinent(e.target.value));
+		dispatch(changePage(1));
+	}
   return (
 		<div>
 			<select onChange={handleContinents}>

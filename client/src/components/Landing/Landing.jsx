@@ -27,7 +27,7 @@ const Landing = () => {
 					<p className={styles.content}>
 						¿Planeas vacaciones? Conoce a donde ir y que hacer.
 					</p>
-					<Link to={pathRoutes.HOME}>
+					<Link to={pathRoutes.COUNTRIES}>
 						<div className={styles.buttons}>
 							<Buttons buttonName='Ver Countries' />
 						</div>
