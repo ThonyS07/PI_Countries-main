@@ -20,7 +20,6 @@ const initialState = {
 	countryBackUp: [],
 	countriesDetail: [],
 	allActivities: [],
-	activitiesBackUp: [],
 	loading: false,
 	error: "",
 	page: 1,
@@ -41,12 +40,13 @@ export default function rootReducer(state = initialState, { type, payload }) {
 				loading: false,
 			};
 		case COUNTRY_BY_NAME:
+			const foundCountry = [...state.countryBackUp].filter(
+				(country) => country.name.toUpperCase() === payload.name.toUpperCase()
+			);
+
 			return {
 				...state,
-				
-					allCountries: [...state.countryBackUp].filter((country) =>
-					country.name.toUpperCase()===(payload.toUpperCase())
-				),
+				allCountries: foundCountry
 			};
 		case CHANGE_PAGE:
 			return {
@@ -113,16 +113,27 @@ export default function rootReducer(state = initialState, { type, payload }) {
 				),
 			};
 		case FILTER_BY_ACTIVITY:
+			const activity = state.allActivities.find(
+				(activity) => activity.name.toUpperCase() === payload.toUpperCase()
+			);
 
-			state.allCountries = state.countryBackUp;
+			let countriesPerActivity = [];
+			if (payload === "allActivities") {
+				countriesPerActivity = [...state.countryBackUp];
+			} else if (activity) {
+				const activityCountryIds = activity.countries.map((countAct) =>
+					countAct.id.toUpperCase()
+				);
+				countriesPerActivity = state.countryBackUp.filter((country) =>
+					activityCountryIds.includes(country.id.toUpperCase())
+				);
+			}
+
 			return {
 				...state,
-				allCountries: [...state.countryBackUp].filter(
-					(country) =>
-						country.activities.name.toUpperCase() === payload.toUpperCase()
-				),
+				allCountries: countriesPerActivity,
 			};
-		
+
 		case GET_ALL_ACTIVITIES:
 			return {
 				...state,

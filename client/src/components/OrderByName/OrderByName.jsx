@@ -16,8 +16,8 @@ const OrderByName=()=> {
 		<div className={styles.select}>
 			<select name='order' onChange={(e) => alphabeticallyOrder(e)}>
 				<option value='allCountries'>Order by name</option>
-				<option value='Ascending'>Alphabetically ascending</option>
-				<option value='Descending'>Alphabetically descending</option>
+				<option value='Ascending'>A-Z</option>
+				<option value='Descending'>Z-A</option>
 			</select>
 		</div>
 	);

@@ -1,19 +1,20 @@
 //?React
-import { React, useEffect } from "react";
+import { React, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 //?Components
 import Card from "../Card/Card";
 import Paginated from "../Paginated/Paginated";
-import NavBar from "../NavBar/NavBar";
+import CountryBar from "../CountryBar/CountryBar";
 //?Styles
 import styles from "./Countries.module.css";
 
 //?Redux
-import { changePage, getAllCountries, resetDetail, getAllActivities } from "../../redux/actions";
+import { changePage, getAllCountries, resetDetail, getAllActivities,  } from "../../redux/actions";
 
 const Countries = () => {
 	const allCountries = useSelector((state) => state.allCountries);
-	const activities = useSelector((state) => state.allActivities);
+	console.log(allCountries)
+	
 	const numberPerPage = 10;
 	const maxPage = Math.ceil(allCountries.length / numberPerPage);
 	const currentPage = useSelector((state) => state.page);
@@ -29,10 +30,15 @@ const Countries = () => {
 		dispatch(resetDetail());
 		dispatch(changePage(1));
 		dispatch(getAllActivities());
+		// dispatch(searchCountry())
 	}, [dispatch]);
 	return (
 		<div>
-			<NavBar activities={activities} />
+			<CountryBar
+				// findCountry={findCountry}
+				// handleSearchInputChange={handleSearchInputChange}
+				// searchValue={searchValue}
+			/>
 			<div className={styles.Countries}>
 				{!allCountries ? (
 					<h4 className={styles.loading}>'Loading..'</h4>

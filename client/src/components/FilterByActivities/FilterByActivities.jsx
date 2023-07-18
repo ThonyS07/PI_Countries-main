@@ -24,8 +24,8 @@ function FilterByActivities() {
 				<select onChange={handleActivity}>
 					<option value='allActivities' selected='true'>All activities</option>
 					{allActivities.map((activity) => (
-						<option value={activity} key={activity}>
-							{activity}
+						<option value={activity.name} key={activity.name}>
+							{activity.name}
 						</option>
 					))}
 				</select>
