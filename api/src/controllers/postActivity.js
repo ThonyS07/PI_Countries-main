@@ -34,7 +34,6 @@ const postActivity = async (req, res) => {
 			res.status(200).send("Actividad creada con exito");
 		}
 	} catch (error) {
-		
 		res.status(404).send(error.msg);
 	}
 };

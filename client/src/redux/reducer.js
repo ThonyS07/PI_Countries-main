@@ -69,7 +69,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
 				? countriesOrderByName.sort((a, b) => a.name.localeCompare(b.name))
 				: payload === "Descending"
 				? countriesOrderByName.sort((a, b) => b.name.localeCompare(a.name))
-				: (countriesOrderByName = [...state.countryBackUp]);
+				: countriesOrderByName = [...state.allCountries];
 			// if (payload === "Ascending") {
 			// 	countriesOrderByName.sort((a, b) => a.name.localeCompare(b.name));
 			// } else if (payload === "Descending") {
@@ -87,7 +87,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
 				? orderCountriesByPopulation.sort((a, b) => a.population - b.population)
 				: payload === "Descending"
 				? orderCountriesByPopulation.sort((a, b) => b.population - a.population)
-				: (orderCountriesByPopulation = [...state.countryBackUp]);
+				: orderCountriesByPopulation = [...state.allCountries];
 			// if (payload === "Ascending") {
 			// 	orderCountriesByPopulation.sort((a, b) => a.population - b.population);
 			// } else if (payload === "Descending") {

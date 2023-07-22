@@ -1,12 +1,26 @@
-.button{
-    width: 140px;
-	height: 35px;
-	flex-shrink: 0;
+.button {
+	display: inline-flex;
+	padding: 16px 24px 16px 32px;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
 	color: #fff;
 	font-family: Inter;
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 600;
 	line-height: 24px;
-	background-color: #19818F;
+	border-radius: 4px;
+	background-color: #925ff0;
+}
+
+.button:hover {
+	display: inline-flex;
+	padding: 16px 24px 16px 32px;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	border-radius: 4px;
+	background: #a87ff3;
+	cursor: pointer;
 }

@@ -33,7 +33,7 @@ const Countries = () => {
 		// dispatch(searchCountry())
 	}, [dispatch]);
 	return (
-		<div>
+		<div className={styles.content}>
 			<CountryBar
 				// findCountry={findCountry}
 				// handleSearchInputChange={handleSearchInputChange}
@@ -51,6 +51,7 @@ const Countries = () => {
 								name={country.name}
 								continent={country.continent}
 								flagImg={country.flagImg}
+								subregion={country.subregion}
 							/>
 						);
 					})

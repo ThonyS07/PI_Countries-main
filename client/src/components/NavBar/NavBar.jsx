@@ -11,23 +11,21 @@ import styles from "./NavBar.module.css";
 
 //Routes
 import pathRoutes from "../../helpers/pathRoutes.helper";
-import SearchBar from "../SearchBar/SearchBar";
-import OrderByPopulation from '../OrderByPopulation/OrderByPopulation';
-import OrderByName from "../OrderByName/OrderByName";
-import FilterByActivities from "../FilterByActivities/FilterByActivities";
-import FilterByContinent from '../FilterByContinent/FilterByContinent'
-import { useSelector } from "react-redux";
+// import SearchBar from "../SearchBar/SearchBar";
+// import OrderByPopulation from '../OrderByPopulation/OrderByPopulation';
+// import OrderByName from "../OrderByName/OrderByName";
+// import FilterByActivities from "../FilterByActivities/FilterByActivities";
+// import FilterByContinent from '../FilterByContinent/FilterByContinent'
+// import { useSelector } from "react-redux";
 const NavBar = () => {
-	const activities = useSelector((state) => state.allActivities);
+	// const activities = useSelector((state) => state.allActivities);
 	// const { pathname } = useLocation();
 	return (
 		<div className={styles.NavBar}>
-			
 			<Link className={styles.link} to={pathRoutes.COUNTRIES}>
-				<Logo/>
+				<Logo />
 			</Link>
 			<div className={styles.buttonsWrapper}>
-				
 				<Link className={styles.link} to={pathRoutes.COUNTRIES}>
 					Countries
 				</Link>
@@ -35,12 +33,15 @@ const NavBar = () => {
 					Activities
 				</Link>
 			</div>
-			<SearchBar />
+			{/* <SearchBar />
 			<OrderByPopulation />
 			<OrderByName />
 			<FilterByActivities activities={activities} />
-			<FilterByContinent/>
-			<Buttons buttonName={"Login"} />
+			<FilterByContinent/> */}
+			<Link className={styles.link} to={pathRoutes.ADD_ACTIVITIES}>
+				<Buttons buttonName={"Add Activity"} />
+			</Link>
+			
 		</div>
 	);
 };

@@ -45,14 +45,14 @@ module.exports = (sequelize) => {
 			},
 			season: {
 				type: DataTypes.ENUM(
-					"verano",
-					"primavera",
-					"invierno",
-					"otoño",
-					"todas"
+					"Summer",
+					"Spring",
+					"Winter",
+					"Autumn",
+					"All seasons",
 				),
 				set(value) {
-					this.setDataValue("season", value.toLowerCase());
+					this.setDataValue("season", value);
 				},
 			},
 		},

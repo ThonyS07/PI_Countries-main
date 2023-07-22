@@ -1,48 +1,117 @@
 // REACT
 import React from "react";
-import { Link /*useLocation*/ } from "react-router-dom";
+// import { Link /*useLocation*/ } from "react-router-dom";
 //Components
-import Buttons from "../Buttons/Buttons";
-import Logo from "../Logo/Logo";
+// import Buttons from "../Buttons/Buttons";
+// import Logo from "../Logo/Logo";
 // import SearchBar from '../SearchBar/SearchBar'
+// import FilterByActivities from '../FilterByActivities/FilterByActivities'
 
 // Styles
 import styles from "./CountryBar.module.css";
 
 //Routes
-import pathRoutes from "../../helpers/pathRoutes.helper";
+// import pathRoutes from "../../helpers/pathRoutes.helper";
 import SearchBar from "../SearchBar/SearchBar";
-import OrderByPopulation from "../OrderByPopulation/OrderByPopulation";
-import OrderByName from "../OrderByName/OrderByName";
-import FilterByActivities from "../FilterByActivities/FilterByActivities";
-import FilterByContinent from "../FilterByContinent/FilterByContinent";
-import { useSelector } from "react-redux";
+// import OrderByPopulation from "../OrderByPopulation/OrderByPopulation";
+// import OrderByName from "../OrderByName/OrderByName";
+// import FilterByContinent from "../FilterByContinent/FilterByContinent";
+import { useDispatch, useSelector } from "react-redux";
+import {
+	changePage,
+	filterByActivity,
+	filterByContinent,
+	getAllCountries,
+	orderCountriesByName,
+	orderCountriesByPopulation,
+} from "../../redux/actions";
+import Filter from "../Filter/Filter";
+import Order from "../Order/Order";
+
 const CountryBar = () => {
-	const activities = useSelector((state) => state.allActivities);
-	// const { pathname } = useLocation();
+	const dispatch = useDispatch();
+	const allActivities = useSelector((state) => state.allActivities);
+	const continents = [
+		{ name: "Africa" },
+		{ name: "Antarctica" },
+		{ name: "Asia" },
+		{ name: "Europe" },
+		{ name: "North America" },
+		{ name: "Oceania" },
+		{ name: "South America" },
+	];
+	const orderByName = [
+		{
+			name: "Order by name",
+			value: "allCountries",
+		},
+		{
+			name: "A-Z",
+			value: "Ascending",
+		},
+		{
+			name: "Z-A",
+			value: "Descending",
+		},
+	];
+	const orderByPopulation = [
+		{
+			name: "Order by population",
+			value: "allCountries",
+		},
+		{
+			name: "Min-Max",
+			value: "Ascending",
+		},
+		{
+			name: "Max-Min",
+			value: "Descending",
+		},
+	];
+	const handleActivity = (e) => {
+		e.preventDefault();
+		e.target.value === "allActivities"
+			? dispatch(getAllCountries())
+			: dispatch(filterByActivity(e.target.value));
+		// setOrder(e.target.value);
+		dispatch(changePage(1));
+	};
+	const handleContinents = (e) => {
+		e.preventDefault();
+		dispatch(filterByContinent(e.target.value));
+		dispatch(changePage(1));
+	};
+
+	const alphabeticallyOrder = (e) => {
+		dispatch(orderCountriesByName(e.target.value));
+		dispatch(changePage(1));
+		// setSelect(true)
+	};
+	const populationOrder = (e) => {
+		dispatch(orderCountriesByPopulation(e.target.value));
+		dispatch(changePage(1));
+		// setSelect(true)
+	};
 	return (
-		<div className={styles.CountryBar}>
-			<Link className={styles.link} to={pathRoutes.COUNTRIES}>
-				<Logo />
-			</Link>
-			<div className={styles.buttonsWrapper}>
-				<Link className={styles.link} to={pathRoutes.COUNTRIES}>
-					Countries
-				</Link>
-				<Link className={styles.link} to={pathRoutes.ACTIVITIES}>
-					Activities
-				</Link>
+		<div className={styles.container}>
+			<h2 className={styles.container}>Countries</h2>
+			<div className={styles.CountryBar}>
+				<SearchBar />
+				<Filter
+					handler={handleActivity}
+					arr={allActivities}
+					value='allActivities'
+					name='All activities'
+				/>
+				<Filter
+					handler={handleContinents}
+					arr={continents}
+					value='allCountries'
+					name='All countries'
+				/>
+				<Order handler={alphabeticallyOrder} arr={orderByName} />
+				<Order handler={populationOrder} arr={orderByPopulation} />
 			</div>
-			<SearchBar
-				// findCountry={findCountry}
-				// handleSearchInputChange={handleSearchInputChange}
-				// searchValue={searchValue}
-			/>
-			<OrderByPopulation />
-			<OrderByName />
-			<FilterByActivities activities={activities} />
-			<FilterByContinent />
-			<Buttons buttonName={"Login"} />
 		</div>
 	);
 };

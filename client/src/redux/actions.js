@@ -78,12 +78,7 @@ export const searchCountry = (name) => {
 		}
 	};
 };
-// export const searchCountry = (name) => {
-// 	return {
-// 		type: COUNTRY_BY_NAME,
-// 		payload: name,
-// 	};
-// };
+
 
 export const changePage = (page) => {
 	return {
@@ -139,7 +134,7 @@ export const addActivity = (activity) => {
 		} catch (error) {
 			return dispatch({
 				type: FAILURE,
-				payload: error.response.data.msg,
+				payload: error.msg,
 			});
 		}
 	};
@@ -175,7 +170,7 @@ export const deleteActivity = (activity) => {
 		} catch (error) {
 			return dispatch({
 				type: FAILURE,
-				payload: error.response.data.msg,
+				payload: error.msg,
 			});
 		}
 	};
