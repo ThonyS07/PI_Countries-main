@@ -116,7 +116,7 @@ export const filterByActivity = (filter) => {
 };
 
 export const addActivity = (activity) => {
-	return async (dispatch) => {
+	return async () => {
 		try {
 			const response = await axios.post(`${SERVER_URL}/activities`, activity);
 			return response;

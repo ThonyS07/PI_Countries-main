@@ -30,7 +30,7 @@ const AddActivity = () => {
 		difficulty: 0,
 		duration: 0,
 		season: "",
-		countries: [],
+		cId: [],
 	});
 	const [errors, setErrors] = useState({});
 	console.log(Activity);
@@ -63,13 +63,13 @@ const AddActivity = () => {
 	const handleSelect = (id) => {
 		setActivity({
 			...Activity,
-			countries: [...Activity.countries, id.target.value],
+			cId: [...Activity.cId, id.target.value],
 		});
 	};
 	const handleDelete = (e) => {
 		setActivity({
 			...Activity,
-			countries: Activity.countries.filter((country) => country !== e),
+			cId: Activity.cId.filter((country) => country !== e),
 		});
 	};
 
@@ -79,7 +79,7 @@ const AddActivity = () => {
 			!Activity.duration ||
 			!Activity.difficulty ||
 			!Activity.season ||
-			!Activity.countries.length
+			!Activity.cId.length
 		) {
 			return alert("Complete all the fields");
 		} 
@@ -177,11 +177,16 @@ const AddActivity = () => {
 						</div>
 						<div>
 							<ul>
-								<li className={styles.countryWrapper}>
-									{Activity.countries.map((id) => (
+								<li className={styles.countryWrapper} >
+									{Activity.cId.map((id) => (
 										<div key={id} className={styles.countriesSelected}>
 											{id}
-											<button onClick={() => handleDelete(id)} type='button'>
+											<button
+												
+												onClick={() => handleDelete(id)}
+												
+												type='button'
+											>
 												X
 											</button>
 										</div>
@@ -191,11 +196,12 @@ const AddActivity = () => {
 						</div>
 
 						<br />
-						{errors.countries && (
-							<p className={styles.errors}>{errors.countries}</p>
+						{errors.cId && (
+							<p className={styles.errors}>{errors.cId}</p>
 						)}
 						<div className={styles.submit}>
-							<Buttons buttonName={"Add"} />
+							
+							<Buttons  buttonName={"Add"} />
 						</div>
 					</form>
 				</div>

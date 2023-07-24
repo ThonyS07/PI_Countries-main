@@ -6,7 +6,7 @@
 	width: 500px;
 	padding-bottom:20px;
 	border: solid #be9ff6;
-	
+	overflow: hidden;
 	border-radius: 10px;
 }
 
