@@ -13,6 +13,7 @@ import {
 	FAILURE,
 	LOADING,
 	FILTER_BY_ACTIVITY,
+
 } from "./constants";
 
 const initialState = {
@@ -46,7 +47,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
 
 			return {
 				...state,
-				allCountries: foundCountry
+				allCountries: foundCountry,
 			};
 		case CHANGE_PAGE:
 			return {
@@ -69,14 +70,8 @@ export default function rootReducer(state = initialState, { type, payload }) {
 				? countriesOrderByName.sort((a, b) => a.name.localeCompare(b.name))
 				: payload === "Descending"
 				? countriesOrderByName.sort((a, b) => b.name.localeCompare(a.name))
-				: countriesOrderByName = [...state.allCountries];
-			// if (payload === "Ascending") {
-			// 	countriesOrderByName.sort((a, b) => a.name.localeCompare(b.name));
-			// } else if (payload === "Descending") {
-			// 	countriesOrderByName.sort((a, b) => b.name.localeCompare(a.name));
-			// } else if (payload === "allCountries") {
-			// 	countriesOrderByName = [...state.countryBackUp];
-			// }
+				: (countriesOrderByName = [...state.allCountries]);
+		
 			return {
 				...state,
 				allCountries: [...countriesOrderByName],
@@ -87,14 +82,8 @@ export default function rootReducer(state = initialState, { type, payload }) {
 				? orderCountriesByPopulation.sort((a, b) => a.population - b.population)
 				: payload === "Descending"
 				? orderCountriesByPopulation.sort((a, b) => b.population - a.population)
-				: orderCountriesByPopulation = [...state.allCountries];
-			// if (payload === "Ascending") {
-			// 	orderCountriesByPopulation.sort((a, b) => a.population - b.population);
-			// } else if (payload === "Descending") {
-			// 	orderCountriesByPopulation.sort((a, b) => b.population - a.population);
-			// } else if (payload === "allCountries") {
-			// 	orderCountriesByPopulation = [...state.countryBackUp];
-			// }
+				: (orderCountriesByPopulation = [...state.allCountries]);
+			
 			return {
 				...state,
 				allCountries: [...orderCountriesByPopulation],
@@ -140,6 +129,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
 				allActivities: payload,
 				activitiesBackUp: payload,
 			};
+		
 		case DELETE_ACTIVITY:
 			return {
 				...state,

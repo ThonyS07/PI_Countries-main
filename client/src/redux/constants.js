@@ -12,3 +12,4 @@ export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
 export const FAILURE = "FAILURE";
 export const LOADING = "LOADING";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
+;

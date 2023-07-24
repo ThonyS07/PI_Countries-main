@@ -8,7 +8,7 @@ import styles from "./Card.module.css";
 import pathRoutes from "../../helpers/pathRoutes.helper";
 
 const Card = (props) => {
-	const { id, name, flagImg, continent, subregion} = props;
+	const { id, name, flagImg, continent} = props;
 	// const [isFav, setIsFav] = useState(false);
 
 	// const handleFavorite = () => {
@@ -33,21 +33,7 @@ const Card = (props) => {
 						<div className={styles.continent}>
 							<h2>{continent}</h2>
 						</div>
-						<div className={styles.continent}>
-							<h2>{subregion}</h2>
-
-							{/* <div className='favBoton'>
-							{isFav ? (
-								<button className={styles.favBoton} onClick={handleFavorite}>
-									❤️
-								</button>
-							) : (
-								<button className={styles.favBoton} onClick={handleFavorite}>
-									🤍
-								</button>
-							)}
-						</div> */}
-						</div>
+						
 					</div>
 				</div>
 			</div>

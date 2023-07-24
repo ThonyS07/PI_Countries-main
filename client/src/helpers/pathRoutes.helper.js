@@ -6,6 +6,7 @@ const pathRoutes = {
 	ACTIVITIES: "/activities",
 	COUNTRY_DETAILS: `/country/`,
 	ADD_ACTIVITIES: '/newactivity',
+	
 };
 
 export default pathRoutes;

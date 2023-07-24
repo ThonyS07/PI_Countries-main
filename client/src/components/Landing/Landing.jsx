@@ -23,11 +23,11 @@ const Landing = () => {
 			<div className={styles.tittle}>Countries </div>
 			<div className={styles.secondTittle}>& Activities</div>
 			<div className={styles.content}>
-				¿Planeas vacaciones? Conoce a donde ir y que hacer.
+				Vacations? Come and see where to go.
 			</div>
 			<div className={styles.button}>
 				
-					<Link to={pathRoutes.COUNTRIES} ><Buttons buttonName='Ver Countries'/></Link>
+					<Link to={pathRoutes.COUNTRIES} ><Buttons buttonName='Go to Countries'/></Link>
 	
 			</div>
 			<div className={styles.right}>

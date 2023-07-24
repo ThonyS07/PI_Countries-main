@@ -1,5 +1,5 @@
 //?React
-import { React, useEffect} from "react";
+import { React, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 //?Components
 import Card from "../Card/Card";
@@ -9,12 +9,17 @@ import CountryBar from "../CountryBar/CountryBar";
 import styles from "./Countries.module.css";
 
 //?Redux
-import { changePage, getAllCountries, resetDetail, getAllActivities,  } from "../../redux/actions";
+import {
+	changePage,
+	getAllCountries,
+	resetDetail,
+	getAllActivities,
+} from "../../redux/actions";
 
 const Countries = () => {
 	const allCountries = useSelector((state) => state.allCountries);
-	console.log(allCountries)
-	
+	console.log(allCountries);
+
 	const numberPerPage = 10;
 	const maxPage = Math.ceil(allCountries.length / numberPerPage);
 	const currentPage = useSelector((state) => state.page);
@@ -34,11 +39,7 @@ const Countries = () => {
 	}, [dispatch]);
 	return (
 		<div className={styles.content}>
-			<CountryBar
-				// findCountry={findCountry}
-				// handleSearchInputChange={handleSearchInputChange}
-				// searchValue={searchValue}
-			/>
+			<CountryBar />
 			<div className={styles.Countries}>
 				{!allCountries ? (
 					<h4 className={styles.loading}>'Loading..'</h4>
@@ -51,11 +52,13 @@ const Countries = () => {
 								name={country.name}
 								continent={country.continent}
 								flagImg={country.flagImg}
-								subregion={country.subregion}
+								
 							/>
 						);
 					})
 				)}
+			</div>
+			<div className={styles.paginated}>
 				<Paginated currentPage={currentPage} maxPage={maxPage} />
 			</div>
 		</div>

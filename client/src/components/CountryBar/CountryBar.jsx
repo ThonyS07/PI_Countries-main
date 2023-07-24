@@ -85,16 +85,16 @@ const CountryBar = () => {
 	const alphabeticallyOrder = (e) => {
 		dispatch(orderCountriesByName(e.target.value));
 		dispatch(changePage(1));
-		// setSelect(true)
+		
 	};
 	const populationOrder = (e) => {
 		dispatch(orderCountriesByPopulation(e.target.value));
 		dispatch(changePage(1));
-		// setSelect(true)
+		
 	};
 	return (
 		<div className={styles.container}>
-			<h2 className={styles.container}>Countries</h2>
+			<h2 className={styles.tittle}>Countries</h2>
 			<div className={styles.CountryBar}>
 				<SearchBar />
 				<Filter

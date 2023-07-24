@@ -1,0 +1,80 @@
+.ActivityCard {
+	width: 200px;
+	height: 241px;
+	display: flex;
+	padding-bottom: 0px;
+	flex-direction: column;
+	align-content: space-around;
+
+	border: solid #be9ff6;
+	overflow: hidden;
+	border-radius: 10px;
+	padding:10px;
+}
+.ActivityCard:hover {
+	opacity: 0.85;
+}
+
+.name {
+
+	color: #0b0b0b;
+	font-family: Poppins;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 100%;
+	margin: 0px;
+	padding-bottom: 0px;
+	padding-left:10px;
+}
+.text {
+	display: flex;
+	width: 200px;
+	height: 60px;
+	padding: 0px;
+	justify-content: space-between;
+	align-items: center;
+	color: #0b0b0b;
+}
+
+.additional {
+	display: inline-flex;
+	padding-bottom: 0px;
+	
+	align-items: center;
+	margin: 0px;
+	border-radius: 10px;
+	background:  #fff;
+	color: #0b0b0b;
+	font-family: Poppins;
+	font-size: 9px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 18px;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.content {
+	display: flex;
+	height: 24px;
+	padding: 4px 4px;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	margin: 0px;
+	border-radius: 12px;
+	border: 1px solid #be9ff6;
+	background: #e9dffc;
+}
+
+.delete {
+	cursor: pointer;
+	width: 25px;
+	height: 25px;
+	margin-top: 10px;
+	background-color: none;
+	border: none;
+	display: flex;
+	margin-top: 40px;
+}

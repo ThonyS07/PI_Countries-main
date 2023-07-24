@@ -2,16 +2,20 @@
 	background-color: #f4effd;
 	/* margin-left: 8%;
 	margin-right: 8%; */
-	padding: 5px 3px 5px 5%;
-	
+	padding: 3px 3px 15px 3px;
 	justify-content: center;
-}
+	align-items: center;
 
+}
+.tittle{
+	padding-left: 100px;
+}
 .CountryBar {
 	display: flex;
 	width: auto;
 	justify-content: center;
-	background-color: white;
-	flex-direction: row;
+	align-items: center;
+	/* background-color: white;	 */
 	background-color: #f4effd;
+	padding-bottom: 5px;
 }

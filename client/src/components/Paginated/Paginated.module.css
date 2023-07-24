@@ -1,0 +1,35 @@
+.paginated {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.pageButton {
+display: flex;
+	width: 24px;
+	height: 24px;
+	flex-shrink: 0;
+	border: none;
+	background: none;
+	overflow: hidden;
+    right: 5px;;
+    cursor: pointer;
+}
+.pageButton:hover {
+	background: #fff;
+	color: black;
+	border-color: black;
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.disabled{
+    display: flex;
+	width: 24px;
+	height: 24px;
+	flex-shrink: 0;
+	border: black;
+	background: none;
+	overflow: hidden;
+    right: 5px;;
+    cursor:not-allowed;
+}

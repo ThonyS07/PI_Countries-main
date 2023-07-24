@@ -12,7 +12,7 @@ import {
 	GET_ALL_ACTIVITIES,
 	DELETE_ACTIVITY,
 	FAILURE,
-	LOADING
+	LOADING,
 } from "./constants";
 
 import axios from "axios";
@@ -32,7 +32,7 @@ export const getAllCountries = () => {
 			} catch (error) {
 			return dispatch({
 				type: FAILURE,
-				payload: error.response.data.msg,
+				payload: error.msg,
 			});
 		}
 	};
@@ -54,7 +54,7 @@ export const countryDetail = (id) => {
 			} catch (error) {
 			return dispatch({
 				type: FAILURE,
-				payload: error.response.data.msg,
+				payload: error.msg,
 			});
 		}
 	};
@@ -158,6 +158,7 @@ export const getAllActivities = () => {
 		}
 	};
 };
+
 
 export const deleteActivity = (activity) => {
 	return async (dispatch) => {

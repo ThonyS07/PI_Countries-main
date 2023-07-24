@@ -1,0 +1,12 @@
+.container {
+	background-color: #f4effd;
+	/* margin-left: 8%;
+	margin-right: 8%; */
+	padding: 3px 3px 15px 3px;
+	justify-content: center;
+	align-items: center;
+
+}
+.tittle{
+	padding-left: 100px;
+}
