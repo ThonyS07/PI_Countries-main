@@ -10,8 +10,6 @@ import {
 	FILTER_BY_CONTINENT,
 	GET_ALL_ACTIVITIES,
 	DELETE_ACTIVITY,
-	FAILURE,
-	LOADING,
 	FILTER_BY_ACTIVITY,
 
 } from "./constants";
@@ -21,8 +19,6 @@ const initialState = {
 	countryBackUp: [],
 	countriesDetail: [],
 	allActivities: [],
-	loading: false,
-	error: "",
 	page: 1,
 };
 
@@ -136,16 +132,6 @@ export default function rootReducer(state = initialState, { type, payload }) {
 				allActivities: [...state.allActivities].filter(
 					(activity) => activity.name.toUpperCase() !== payload
 				),
-			};
-		case FAILURE:
-			return {
-				...state,
-				error: payload,
-			};
-		case LOADING:
-			return {
-				...state,
-				loading: true,
 			};
 		default:
 			return { ...state };

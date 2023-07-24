@@ -11,8 +11,8 @@ import {
 	FILTER_BY_ACTIVITY,
 	GET_ALL_ACTIVITIES,
 	DELETE_ACTIVITY,
-	FAILURE,
-	LOADING,
+
+
 } from "./constants";
 
 import axios from "axios";
@@ -30,10 +30,7 @@ export const getAllCountries = () => {
 			});
 		});
 			} catch (error) {
-			return dispatch({
-				type: FAILURE,
-				payload: error.msg,
-			});
+			alert(error.msg);	
 		}
 	};
 };
@@ -42,9 +39,7 @@ export const countryDetail = (id) => {
 	const endpoint = `${SERVER_URL}/countries/${id}`;
 	return async (dispatch) => {
 		try {
-			  dispatch({
-					type: LOADING,
-				});
+			  
 		await axios(endpoint).then(({ data }) => {
 			return dispatch({
 				type: COUNTRY_BY_ID,
@@ -52,10 +47,7 @@ export const countryDetail = (id) => {
 			});
 		});
 			} catch (error) {
-			return dispatch({
-				type: FAILURE,
-				payload: error.msg,
-			});
+			alert(error.msg)			
 		}
 	};
 };
@@ -71,10 +63,7 @@ export const searchCountry = (name) => {
 				});
 			});
 		} catch (error ) {
-			return dispatch({
-				type: FAILURE,
-				payload:error.msg,
-			});
+			alert(error.msg);	
 		}
 	};
 };
@@ -132,10 +121,7 @@ export const addActivity = (activity) => {
 			const response = await axios.post(`${SERVER_URL}/activities`, activity);
 			return response;
 		} catch (error) {
-			return dispatch({
-				type: FAILURE,
-				payload: error.msg,
-			});
+		alert(error.msg);	
 		}
 	};
 };
@@ -151,13 +137,10 @@ export const getAllActivities = () => {
 				});
 			});
 		} catch (error) {
-			return dispatch({
-				type: FAILURE,
-				payload: error.msg,
-			});
-		}
+			alert(error.msg)
+		};
 	};
-};
+}
 
 
 export const deleteActivity = (activity) => {
@@ -169,10 +152,7 @@ export const deleteActivity = (activity) => {
 				payload: activity,
 			});
 		} catch (error) {
-			return dispatch({
-				type: FAILURE,
-				payload: error.msg,
-			});
+			alert(error.msg)	
 		}
 	};
 };
