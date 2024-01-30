@@ -3,12 +3,14 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT, postgresVercel
+  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT, postgresVercel, host
 } = process.env;
 const sequelize = new Sequelize(
 	`postgres:${postgresVercel}
-	`,{
-		dialect: "postgres", // Add this line
+	`,
+	{
+		dialect: "postgres",
+		host: `${host}`, // Add this line
 		dialectOptions: {
 			ssl: {
 				require: true,
