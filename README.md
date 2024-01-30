@@ -1,6 +1,4 @@
-![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
-
-# **COUNTRIES** | Proyecto Individual
+# **COUNTRIES**
 
 ## **📌 OBJETIVOS**
 
@@ -9,7 +7,7 @@
 -  Afirmar y conectar los conceptos aprendidos en la carrera.
 -  Aprender mejores prácticas.
 -  Aprender y practicar el workflow de GIT.
--  Utilizar y practicar testing.
+
 
 <br />
 
@@ -225,7 +223,6 @@ Este formulario debe ser **controlado completamente con JavaScritp**. No se pued
 -  Posibilidad de seleccionar/agregar varios países en simultáneo.
 -  Botón para crear la actividad turística.
 
-> [**IMPORANTE**]: es requisito que el formulario de creación esté validado sólo con JavaScript. Puedes agregar las validaciones que consideres. Por ejemplo: que el nombre de la actividad no pueda contener números, o que la duración no pueda exceder determinado valor, etc.
 
 <br />
 
@@ -233,17 +230,6 @@ Este formulario debe ser **controlado completamente con JavaScritp**. No se pued
 
 <br />
 
-### **🖱 TESTING**
-
-Ten en cuenta que en esta instancia no es obligatorio el desarrollo de testing para tu aplicación. De igual manera, te desafiamos a que los hagas, ¡ya que suman puntos!
-
--  Al menos tener un componente del frontend con sus tests respectivos.
--  Al menos tener dos rutas del backend con sus tests respectivos.
--  Al menos tener un modelo de la base de datos con sus tests respectivos.
-
-<br />
-
----
 
 <br />
 
