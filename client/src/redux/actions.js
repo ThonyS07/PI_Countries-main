@@ -17,7 +17,8 @@ import {
 
 import axios from "axios";
 
-const SERVER_URL = "http://localhost:3001/pi";
+// const SERVER_URL = "http://localhost:3001/pi";
+const SERVER_URL = "pi-countries-main-o6gd.vercel.app";
 
 export const getAllCountries = () => {
 	const endpoint = `${SERVER_URL}/countries/all`;
