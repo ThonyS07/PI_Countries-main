@@ -18,20 +18,21 @@ import {
 import axios from "axios";
 
 // const SERVER_URL = "http://localhost:3001/pi";
-const SERVER_URL = "pi-countries-main-o6gd.vercel.app";
+const SERVER_URL =
+	"https:pi-countries-mainserver-3n5xjya9j-thonys07.vercel.app";//pi-countries-mainserver-3n5xjya9j-thonys07.vercel.app
 
-export const getAllCountries = () => {
+ export const getAllCountries = () => {
 	const endpoint = `${SERVER_URL}/countries/all`;
 	return async (dispatch) => {
-		try{
-		await axios(endpoint).then(({ data }) => {
-			return dispatch({
-				type: GET_ALL_COUNTRIES,
-				payload: data,
+		try {
+			await axios(endpoint).then(({ data }) => {
+				return dispatch({
+					type: GET_ALL_COUNTRIES,
+					payload: data,
+				});
 			});
-		});
-			} catch (error) {
-			alert(error.msg);	
+		} catch (error) {
+			alert(error.msg);
 		}
 	};
 };
